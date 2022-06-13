@@ -5,5 +5,5 @@ package com.heartstone.structure.tree.avl;
  * @author
  * @date 2022-06-13 17:34
  */
-public class AvlTreeDemo {
+public class AVLTreeDemo {
 }
