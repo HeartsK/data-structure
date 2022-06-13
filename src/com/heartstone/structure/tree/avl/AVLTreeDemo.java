@@ -17,6 +17,11 @@ public class AVLTreeDemo {
         System.out.println("树的高度："+avlTree.height(avlTree.getRoot()));
         System.out.println("左子树的高度："+avlTree.height(avlTree.getRoot().getLeft()));
         System.out.println("右子树的高度："+avlTree.height(avlTree.getRoot().getRight()));
+        avlTree.transferAVL();
+        avlTree.infixList();
+        System.out.println("转成avl后树的高度："+ avlTree.height(avlTree.getRoot()));
+        System.out.println("转成avl后左子树的高度："+ avlTree.height(avlTree.getRoot().getLeft()));
+        System.out.println("转成avl后右子树的高度："+ avlTree.height(avlTree.getRoot().getRight()));
     }
 
 }
@@ -35,6 +40,20 @@ class AVLTree{
             root = node;
         }else {
             root.add(node);
+        }
+    }
+
+    public void transferAVL(){
+        //获取左子树和右子树的高度差值
+        int leftHeight = height(root.getLeft());
+        int rightHeight = height(root.getRight());
+        if (Math.abs(leftHeight-rightHeight) > 1){
+            Node node = new Node(root.getValue());
+            node.setLeft(root.getLeft());
+            node.setRight(root.getRight().getLeft());
+            root.setValue(root.getRight().getValue());
+            root.setRight(root.getRight().getRight());
+            root.setLeft(node);
         }
     }
 
