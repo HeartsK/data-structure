@@ -20,8 +20,14 @@ public class BinarySortTreeDemo {
 //        SortNode parentNode = sortTree.searchParent(7);
 //        System.out.println(parentNode);
         System.out.println("删除节点");
-//        sortTree.delNode(2);
+        sortTree.delNode(2);
         sortTree.delNode(10);
+        sortTree.delNode(3);
+        sortTree.delNode(12);
+        sortTree.delNode(5);
+        sortTree.delNode(7);
+        sortTree.delNode(1);
+        sortTree.delNode(9);
         sortTree.infixList();
     }
 
@@ -60,6 +66,10 @@ class BinarySortTree{
 
         if (targetNode.getLeft() == null && targetNode.getRight() == null){
             //判断当前节点是父节点的左子节点还是右子节点
+            if (parentNode.getValue() == targetNode.getValue()){
+                root = null;
+                return;
+            }
             if (parentNode.getLeft() != null && parentNode.getLeft().getValue() == targetNode.getValue()){
                 parentNode.setLeft(null);
             }else if (parentNode.getRight() != null && parentNode.getRight().getValue() == targetNode.getValue()){
@@ -76,6 +86,15 @@ class BinarySortTree{
             targetNode.setValue(temp.getValue());
         }else {
             //目标节点为单子节点树
+            //如果目前节点为根节点，且只有一个子节点
+            if (parentNode.getValue() == targetNode.getValue()){
+                if (parentNode.getLeft() != null) {
+                    root = parentNode.getLeft();
+                }else {
+                    root = parentNode.getRight();
+                }
+                return;
+            }
             if (parentNode.getLeft() != null && parentNode.getLeft().getValue() == targetNode.getValue()){
                 if (targetNode.getLeft() != null){
                     parentNode.setLeft(targetNode.getLeft());
