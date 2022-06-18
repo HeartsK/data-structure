@@ -30,8 +30,8 @@ public class CustomSort {
     }
 
     public static void bubbleSort(int[] originalArrays){
-        for (int i = 0; i < originalArrays.length; i++) {
-            for (int j = 0; j < originalArrays.length-1; j++) {
+        for (int i = 0; i < originalArrays.length-1; i++) {
+            for (int j = 0; j < originalArrays.length-1-i; j++) {
                 if (originalArrays[j] > originalArrays[j+1]){
                     int temp = originalArrays[j];
                     originalArrays[j] = originalArrays[j+1];
