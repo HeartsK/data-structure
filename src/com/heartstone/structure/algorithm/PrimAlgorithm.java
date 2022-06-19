@@ -2,6 +2,9 @@ package com.heartstone.structure.algorithm;
 
 import java.util.Arrays;
 
+/**
+ * 普里姆算法
+ */
 public class PrimAlgorithm {
 
     public static void main(String[] args) {
@@ -47,7 +50,7 @@ class PTree{
     }
 
     /**
-     * 普利姆算法求最小生成树
+     * 普里姆算法求最小生成树
      * @param v 从哪个顶点开始
      * @param graph 图
      */
